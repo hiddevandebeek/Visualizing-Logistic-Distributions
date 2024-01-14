@@ -18,7 +18,7 @@ ui <- shinyUI(navbarPage(
   theme = shinytheme("flatly"),  # Applying a pre-designed theme
   "Distribution Visualizer", 
   # Home tab
-  tabPanel("HOME", id = "navibar", value = "home",
+  tabPanel("Graph", id = "navibar", value = "home",
            fluidRow(
              div(style = "padding-left: 20px; padding-top: 20px;", # Adding padding to the left and top of the title
                  h2("Visualizing Distribution Changes")
@@ -65,6 +65,29 @@ ui <- shinyUI(navbarPage(
              )
            )
   ),
+  tabPanel("Explanation", id = "explanation",
+           fluidPage(
+             titlePanel("Welcome to the Distribution Visualizer"),
+             fluidRow(
+               div(
+                 p("Welcome to the Distribution Visualizer! This web application provides you with a powerful tool to gain deeper insights into data distribution changes within a two-class dataset. By adjusting various parameters, you can visualize and understand how they influence the data distributions."),
+                 h4("How to Use:"),
+                 p("To make the most of this tool, follow these steps:"),
+                 HTML("<ol>
+              <li>Use the 'AUC Size' slider to control the area under the curve (AUC) of the distributions, influencing the shape and spread of data.</li>
+              <li>Customize the 'Population Size' slider to specify the number of samples in each class, reflecting your dataset's characteristics.</li>
+              <li>Experiment with the 'Delta Sigma' slider to change the difference in variances between classes, providing insights into variance-related effects.</li>
+              <li>Fine-tune the 'Correlation between Predictors' slider to set the correlation between predictors, which plays a crucial role in data distribution.</li>
+              <li>Explore the '2D Plot' and '3D Plot' tabs to gain visual perspectives on data distribution changes in different dimensions.</li>
+              <li>Analyze the 'Model Matrices' tab for detailed information about covariance matrices and class means, aiding in statistical understanding.</li>
+              <li>Feel free to interact with the controls, iterate, and interpret the visualizations to enhance your dataset understanding and exploratory data analysis.</li>
+            </ol>"),
+                 p("With its user-friendly interface and powerful visualization capabilities, the Distribution Visualizer empowers you to uncover hidden patterns, outliers, and trends in your data. It serves as an invaluable tool for data scientists, analysts, and researchers seeking to deepen their understanding of complex datasets.")
+               )
+             )
+           )
+  )
+  ,
   selected = "home")
 )
 
